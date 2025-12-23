@@ -4,8 +4,8 @@
 const CONFIG = {
     // API Credentials for Payment Gateway
     paymentGateway: {
-        username: "usernameOrderkuota", // Ganti dengan username orderkuota Anda
-        token: "tokenOrderkuota", // Ganti dengan token orderkuota Anda
+        username: "skyzopedia", // Ganti dengan username orderkuota Anda
+        token: "2088243:gGrny3pwsEWxulfLaakhiQDvMPhj7Ke", // Ganti dengan token orderkuota Anda
         baseUrl: "https://api.orderkuota.com" // Base URL API Payment
     },
     
