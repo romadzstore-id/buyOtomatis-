@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="id" class="dark scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web HirrOfficial — Panel RAM & Reseller</title>
+  <meta name="description" content="Web HirrOfficial — VPS Dedicated Intel Xeon Gold • Garansi 30 Hari • Server 100% Private" />
+
+  <link rel="icon" href="./img/favicon.jpg" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.stylecss.com"></script>
+  <script>
+    style.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            secondary: {
+              50: '#fdf4ff',
+              100: '#fae8ff',
+              200: '#f5d0fe',
+              300: '#f0abfc',
+              400: '#e879f9',
+              500: '#d946ef',
+              600: '#c026d3',
+              700: '#a21caf',
+              800: '#86198f',
+              900: '#701a75',
+            }
+          },
+          fontFamily: {
+            'heading': ['Poppins', 'system-ui', 'sans-serif'],
+            'body': ['Poppins', 'system-ui', 'sans-serif'],
+            'mono': ['JetBrains Mono', 'monospace']
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'glow': 'glow 2s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' }
+            },
+            glow: {
+              'from': { boxShadow: '0 0 20px rgba(14, 165, 233, 0.5)' },
+              'to': { boxShadow: '0 0 30px rgba(14, 165, 233, 0.8)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 dark:text-gray-100 font-body">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/80 dark:bg-gray-900/80 border-b border-gray-200/50 dark:border-gray-800/50">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center shadow-lg">
+            <span class="text-white font-bold text-lg">H</span>
+          </div>
+          <div>
+            <h1 class="font-heading font-bold text-xl bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+              Web HirrOfficial
+            </h1>
+            <p class="text-xs text-gray-600 dark:text-gray-400">Panel RAM & Reseller Premium</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <nav class="hidden md:flex items-center gap-6">
+            <a href="#panel" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Panel RAM</a>
+            <a href="#reseller" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Reseller</a>
+            <a href="#payment" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Pembayaran</a>
+          </nav>
+          
+          <button id="themeToggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+            <svg id="sunIcon" class="w-5 h-5 text-gray-700 dark:hidden" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+            </svg>
+            <svg id="moonIcon" class="w-5 h-5 text-gray-300 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 relative overflow-hidden">
+    <!-- Background elements -->
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5"></div>
+    <div class="absolute top-20 right-20 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 left-20 w-80 h-80 bg-secondary-500/10 rounded-full blur-3xl"></div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 text-primary-700 dark:text-primary-300 text-sm font-medium mb-6">
+          <span class="w-2 h-2 bg-primary-500 rounded-full animate-pulse"></span>
+          Aktif 24/7 • Garansi 30 Hari
+        </span>
+        
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          <span class="block">Server Premium</span>
+          <span class="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">Panel RAM & Reseller</span>
+        </h1>
+        
+        <p class="text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto">
+          VPS Dedicated Intel Xeon Gold dengan panel 100% private dan server aktif 30 hari penuh
+        </p>
+        
+        <!-- Benefits Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div class="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50">
+            <div class="w-12 h-12 rounded-xl bg-primary-500/10 flex items-center justify-center mb-4">
+              <span class="text-primary-600 dark:text-primary-400 text-2xl">⚡</span>
+            </div>
+            <h3 class="font-bold mb-2">Intel Xeon Gold 6140</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">2 Cores dedicated</p>
+          </div>
+          
+          <div class="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50">
+            <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-4">
+              <span class="text-green-600 dark:text-green-400 text-2xl">✓</span>
+            </div>
+            <h3 class="font-bold mb-2">Garansi 30 Hari</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Full refund jika tidak puas</p>
+          </div>
+          
+          <div class="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4">
+              <span class="text-purple-600 dark:text-purple-400 text-2xl">🔒</span>
+            </div>
+            <h3 class="font-bold mb-2">100% Private</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Admin panel Romadz Store</p>
+          </div>
+          
+          <div class="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4">
+              <span class="text-blue-600 dark:text-blue-400 text-2xl">⏱️</span>
+            </div>
+            <h3 class="font-bold mb-2">Server Aktif 24/7</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Uptime 99.9% guarantee</p>
+          </div>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#panel" class="px-8 py-4 bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-primary-500/25 transition-all duration-300 hover:scale-[1.02]">
+            Beli Panel RAM
+          </a>
+          <a href="#reseller" class="px-8 py-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-300 dark:border-gray-700 font-bold rounded-xl hover:bg-white dark:hover:bg-gray-800 transition-all duration-300 hover:scale-[1.02]">
+            Mulai Reseller
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Panel RAM Section -->
+  <section id="panel" class="py-20 bg-gradient-to-b from-white/50 to-gray-100/50 dark:from-gray-900/50 dark:to-gray-950/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-4">Panel RAM Packages</h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Pilih paket RAM sesuai kebutuhan dengan performa maksimal dan garansi penuh
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Paket Basic -->
+        <div class="group bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 hover:border-primary-500 dark:hover:border-primary-500 transition-all duration-300 hover:shadow-xl hover:shadow-primary-500/10">
+          <div class="flex justify-between items-start mb-6">
+            <div>
+              <h3 class="text-2xl font-bold">Basic</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Untuk proyek kecil</p>
+            </div>
+            <span class="px-3 py-1 bg-primary-500/10 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium">Populer</span>
+          </div>
+          
+          <div class="mb-6">
+            <div class="text-5xl font-bold mb-2">2<span class="text-2xl text-gray-500">GB</span></div>
+            <div class="flex items-center text-gray-500 dark:text-gray-400">
+              <span class="text-lg font-bold text-primary-600 dark:text-primary-400">Rp 15.000</span>
+              <span class="mx-2">•</span>
+              <span>30 Hari</span>
+            </div>
+          </div>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              </span>
+              <span>Intel Xeon Gold 6140</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              </span>
+              <span>Garansi 30 Hari</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              </span>
+              <span>Panel 100% Private</span>
+            </li>
+          </ul>
+          
+          <button class="w-full py-3 bg-gray-100 dark:bg-gray-700 hover:bg-primary-500 hover:text-white dark:hover:bg-primary-500 rounded-xl font-bold transition-all duration-300 group-hover:animate-glow" data-product="Panel RAM 2GB" data-price="15000">
+            Pilih Paket
+          </button>
+        </div>
+        
+        <!-- Paket Standard -->
+        <div class="group bg-gradient-to-br from-primary-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-2xl border-2 border-primary-500 dark:border-primary-500 p-8 relative transform scale-105">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+            <span class="px-4 py-1 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-full text-sm font-bold">RECOMMENDED</span>
+          </div>
+          
+          <div class="flex justify-between items-start mb-6">
+            <div>
+              <h3 class="text-2xl font-bold">Standard</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Untuk bisnis menengah</p>
+            </div>
+          </div>
+          
+          <div class="mb-6">
+            <div class="text-5xl font-bold mb-2">4<span class="text-2xl text-gray-500">GB</span></div>
+            <div class="flex items-center text-gray-500 dark:text-gray-400">
+              <span class="text-lg font-bold text-primary-600 dark:text-primary-400">Rp 25.000</span>
+              <span class="mx-2">•</span>
+              <span>30 Hari</span>
+            </div>
+          </div>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              </span>
+              <span>Intel Xeon Gold 6140 (2 Cores)</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              </span>
+              <span>Garansi Full 30 Hari</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              </span>
+              <span>Priority Support</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              </span>
+              <span>Backup Otomatis</span>
+            </li>
+          </ul>
+          
+          <button class="w-full py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-xl font-bold hover:shadow-lg hover:shadow-primary-500/25 transition-all duration-300" data-product="Panel RAM 4GB" data-price="25000">
+            Pilih Paket
+          </button>
+        </div>
+        
+        <!-- Paket Premium -->
+        <div class="group bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-8 hover:border-secondary-500 dark:hover:border-secondary-500 transition-all duration-300 hover:shadow-xl hover:shadow-secondary-500/10">
+          <div class="flex justify-between items-start mb-6">
+            <div>
+              <h3 class="text-2xl font-bold">Premium</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Untuk enterprise</p>
+            </div>
+          </div>
+          
+          <div class="mb-6">
+            <div class="text-5xl font-bold mb-2">8<span class="text-2xl text-gray-500">GB</span></div>
+            <div class="flex items-center text-gray-500 dark:text-gray-400">
+              <span class="text-lg font-bold text-secondary-600 dark:text-secondary-400">Rp 45.000</span>
+              <span class="mx-2">•</span>
+              <span>30 Hari</span>
+            </div>
+          </div>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              </span>
+              <span>Intel Xeon Gold 6140 (2 Cores)</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              </span>
+              <span>Garansi + Extend Support</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              </span>
+              <span>Dedicated Resources</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              </span>
+              <span>White-label Panel</span>
+            </li>
+          </ul>
+          
+          <button class="w-full py-3 bg-gray-100 dark:bg-gray-700 hover:bg-secondary-500 hover:text-white dark:hover:bg-secondary-500 rounded-xl font-bold transition-all duration-300" data-product="Panel RAM 8GB" data-price="45000">
+            Pilih Paket
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reseller Section -->
+  <section id="reseller" class="py-20 bg-gradient-to-b from-gray-100/50 to-white dark:from-gray-950/50 dark:to-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-4">Program Reseller</h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Mulai bisnis hosting Anda sendiri dengan harga khusus reseller dan keuntungan maksimal
+        </p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold mb-6">Keuntungan Reseller</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-primary-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg class="w-3 h-3 text-primary-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                </span>
+                <div>
+                  <h4 class="font-bold">Diskon Hingga 40%</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Harga khusus untuk pembelian dalam jumlah besar</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-primary-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg class="w-3 h-3 text-primary-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                </span>
+                <div>
+                  <h4 class="font-bold">Panel Khusus Reseller</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Manage semua klien dalam satu dashboard</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-primary-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg class="w-3 h-3 text-primary-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                </span>
+                <div>
+                  <h4 class="font-bold">Support Priority</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Tim support khusus untuk reseller</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-primary-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg class="w-3 h-3 text-primary-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                </span>
+                <div>
+                  <h4 class="font-bold">White-label Ready</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Branding dengan nama bisnis Anda sendiri</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-2xl font-bold mb-6">Daftar Reseller</h3>
+            <div class="space-y-4">
+              <div class="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
+                <div class="flex justify-between items-center mb-2">
+                  <h4 class="font-bold">Starter</h4>
+                  <span class="px-3 py-1 bg-primary-500/10 text-primary-700 dark:text-primary-300 rounded-full text-sm">Min. 10 Paket</span>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Cocok untuk memulai bisnis hosting</p>
+                <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">Diskon 20%</div>
+              </div>
+              
+              <div class="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
+                <div class="flex justify-between items-center mb-2">
+                  <h4 class="font-bold">Professional</h4>
+                  <span class="px-3 py-1 bg-primary-500/10 text-primary-700 dark:text-primary-300 rounded-full text-sm">Min. 50 Paket</span>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Untuk bisnis yang berkembang</p>
+                <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">Diskon 30%</div>
+              </div>
+              
+              <div class="bg-gradient-to-r from-primary-50 to-white dark:from-primary-500/10 dark:to-gray-800 rounded-xl p-4 border border-primary-500/50">
+                <div class="flex justify-between items-center mb-2">
+                  <h4 class="font-bold">Enterprise</h4>
+                  <span class="px-3 py-1 bg-primary-500/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">Min. 100 Paket</span>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Untuk bisnis skala besar</p>
+                <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">Diskon 40%</div>
+              </div>
+            </div>
+            
+            <button class="w-full mt-6 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-xl font-bold hover:shadow-lg hover:shadow-primary-500/25 transition-all duration-300" id="resellerBtn">
+              Daftar Sebagai Reseller
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payment Section -->
+  <section id="payment" class="py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold mb-4">Pembayaran QRIS</h2>
+          <p class="text-gray-600 dark:text-gray-400">Bayar dengan mudah melalui QRIS. Cepat dan aman.</p>
+        </div>
+        
+        <!-- Payment Display -->
+        <div id="paymentContainer" class="hidden">
+          <div class="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-8 shadow-xl">
+            <div class="flex justify-between items-center mb-6">
+              <div>
+                <h3 class="text-2xl font-bold">Pembayaran</h3>
+                <p class="text-gray-600 dark:text-gray-400">Scan QRIS untuk melanjutkan</p>
+              </div>
+              <div id="paymentStatus" class="px-4 py-2 bg-yellow-500/10 text-yellow-700 dark:text-yellow-300 rounded-full text-sm font-medium">
+                <span class="w-2 h-2 bg-yellow-500 rounded-full inline-block mr-2 animate-pulse"></span>
+                Menunggu Pembayaran
+              </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+                  <h4 class="font-bold mb-4">Detail Order</h4>
+                  <div id="orderDetails" class="space-y-3">
+                    <!-- Order details will be inserted here -->
+                  </div>
+                  <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                    <div class="flex justify-between items-center text-lg font-bold">
+                      <span>Total</span>
+                      <span id="totalAmount">Rp 0</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mt-4 flex gap-3">
+                  <button id="copyPaymentBtn" class="flex-1 py-3 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-xl font-medium transition-colors">
+                    Copy Payment String
+                  </button>
+                  <button id="cancelBtn" class="flex-1 py-3 bg-red-500/10 hover:bg-red-500/20 text-red-600 dark:text-red-400 rounded-xl font-medium transition-colors">
+                    Batalkan
+                  </button>
+                </div>
+              </div>
+              
+              <div class="flex flex-col items-center justify-center">
+                <div class="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700 mb-4">
+                  <div id="qrcode" class="w-64 h-64 flex items-center justify-center">
+                    <!-- QR Code will be inserted here -->
+                    <div class="text-center">
+                      <div class="text-4xl mb-2">📱</div>
+                      <p class="text-sm text-gray-500">QR Code akan muncul di sini</p>
+                    </div>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 text-center">
+                  Scan dengan aplikasi bank atau e-wallet
+                </p>
+                <div class="mt-4 flex items-center gap-2 text-sm text-gray-500">
+                  <span>📱</span>
+                  <span>Gunakan GoPay, OVO, DANA, atau bank lain</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Empty State -->
+        <div id="paymentEmpty" class="text-center py-12">
+          <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+            <span class="text-4xl">🛒</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Belum ada item yang dipilih</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">
+            Pilih paket Panel RAM atau daftar sebagai Reseller untuk melanjutkan ke pembayaran
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
+              <span class="text-white font-bold text-lg">H</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white">Web HirrOfficial</h3>
+              <p class="text-sm text-gray-400">Panel RAM & Reseller Premium</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-400 max-w-md">
+            VPS Dedicated Intel Xeon Gold dengan garansi 30 hari dan server 100% private.
+          </p>
+        </div>
+        
+        <div class="text-sm">
+          <div class="grid grid-cols-2 gap-8">
+            <div>
+              <h4 class="font-bold text-white mb-3">Layanan</h4>
+              <ul class="space-y-2">
+                <li><a href="#panel" class="hover:text-white transition-colors">Panel RAM</a></li>
+                <li><a href="#reseller" class="hover:text-white transition-colors">Reseller</a></li>
+                <li><a href="#payment" class="hover:text-white transition-colors">Pembayaran</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold text-white mb-3">Info</h4>
+              <ul class="space-y-2">
+                <li>Garansi 30 Hari</li>
+                <li>Server 24/7</li>
+                <li>Support: @romadzstore</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
+        <p>© <span id="currentYear"></span> Web HirrOfficial. Built for MVP checkout with QRIS integration.</p>
+        <p class="mt-2">Config di pisah di server untuk keamanan maksimal.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
