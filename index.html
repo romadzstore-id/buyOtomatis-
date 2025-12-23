@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapura Cloud - Panel Auto Provisioning</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☁️</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-cloud"></i>
+                <h1>Sapura<span>Cloud</span></h1>
+                <span class="badge">BETA</span>
+            </div>
+            <nav>
+                <a href="#" id="nav-home"><i class="fas fa-home"></i> Home</a>
+                <a href="#" id="nav-history"><i class="fas fa-history"></i> History</a>
+                <a href="#" id="nav-support"><i class="fas fa-headset"></i> Support</a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <div class="progress-steps">
+                <div class="step active" data-step="1"><div class="step-number">1</div><div class="step-label">Username</div></div>
+                <div class="step" data-step="2"><div class="step-number">2</div><div class="step-label">Paket</div></div>
+                <div class="step" data-step="3"><div class="step-number">3</div><div class="step-label">Bayar</div></div>
+                <div class="step" data-step="4"><div class="step-number">4</div><div class="step-label">Selesai</div></div>
+            </div>
+
+            <!-- STEP 1: USERNAME -->
+            <section id="step-1" class="step-content active">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-user"></i>
+                        <h2>Buat Username Panel</h2>
+                        <p>Masukkan username untuk akun panel baru Anda</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="username"><i class="fas fa-at"></i> Username</label>
+                            <input type="text" id="username" placeholder="contoh: server123" maxlength="20">
+                            <small class="form-hint">Tanpa spasi, minimal 3 karakter, maksimal 20 karakter</small>
+                            <div class="error-message" id="username-error"></div>
+                        </div>
+                        <div class="info-box">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Satu username hanya bisa memiliki 1 transaksi aktif</p>
+                        </div>
+                        <button id="next-to-packages" class="btn-primary" disabled>
+                            Pilih Paket <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STEP 2: PAKET -->
+            <section id="step-2" class="step-content">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-box-open"></i>
+                        <h2>Pilih Paket Panel</h2>
+                        <p>Pilih spesifikasi server yang Anda butuhkan</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="package-grid" id="package-container">
+                            <!-- Packages will be loaded here -->
+                        </div>
+                        <div class="selected-package-info" id="selected-package-info"></div>
+                        <div class="action-buttons">
+                            <button id="back-to-username" class="btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Kembali
+                            </button>
+                            <button id="next-to-payment" class="btn-primary" disabled>
+                                Bayar Sekarang <i class="fas fa-credit-card"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STEP 3: PEMBAYARAN -->
+            <section id="step-3" class="step-content">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-qrcode"></i>
+                        <h2>Pembayaran QRIS</h2>
+                        <p>Scan QRIS untuk melanjutkan pembayaran</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="payment-info">
+                            <div class="payment-details">
+                                <h3><i class="fas fa-info-circle"></i> Detail Pembayaran</h3>
+                                <div class="detail-row"><span>ID Transaksi:</span><span id="payment-id">-</span></div>
+                                <div class="detail-row"><span>Username:</span><span id="payment-username">-</span></div>
+                                <div class="detail-row"><span>Paket:</span><span id="payment-package">-</span></div>
+                                <div class="detail-row"><span>Harga Paket:</span><span id="package-price">Rp 0</span></div>
+                                <div class="detail-row"><span>Biaya Unik:</span><span id="unique-fee">Rp 0</span></div>
+                                <div class="detail-row total"><span>Total Bayar:</span><span id="total-amount">Rp 0</span></div>
+                                <div class="detail-row"><span>Expired:</span><span id="payment-expired">5 menit</span></div>
+                            </div>
+                            
+                            <div class="qris-container">
+                                <div class="qris-placeholder" id="qris-placeholder">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                    <p>Membuat QRIS...</p>
+                                </div>
+                                <div class="qris-image-container hidden" id="qris-image-container">
+                                    <img id="qris-image" alt="QRIS Code">
+                                    <div class="qris-nominal">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                        <span>Rp <span id="qris-amount">0</span></span>
+                                    </div>
+                                </div>
+                                <div class="countdown" id="countdown">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Sisa waktu: <span id="countdown-timer">05:00</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="payment-instructions">
+                            <h3><i class="fas fa-exclamation-circle"></i> Instruksi Pembayaran</h3>
+                            <ol>
+                                <li>Scan QRIS dengan aplikasi mobile banking/e-wallet</li>
+                                <li>Bayar sesuai nominal yang tertera (<strong id="payment-amount-display">Rp 0</strong>)</li>
+                                <li>Pembayaran otomatis diverifikasi setiap 5 detik</li>
+                                <li>Jangan tutup halaman ini selama proses pembayaran</li>
+                                <li>QRIS expired dalam 5 menit</li>
+                            </ol>
+                        </div>
+
+                        <div class="payment-status" id="payment-status">
+                            <div class="status-pending">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Menunggu pembayaran...</p>
+                                <small>Mengecek pembayaran otomatis</small>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button id="back-to-packages" class="btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Ganti Paket
+                            </button>
+                            <button id="cancel-payment" class="btn-danger">
+                                <i class="fas fa-times"></i> Batalkan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STEP 4: SELESAI -->
+            <section id="step-4" class="step-content">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-check-circle"></i>
+                        <h2>Panel Berhasil Dibuat!</h2>
+                        <p>Detail akun panel Anda</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="success-message">
+                            <div class="success-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3>Pembayaran Berhasil ✅</h3>
+                            <div class="success-details">
+                                <div class="detail-row"><span>ID Transaksi:</span><span id="result-transaction-id">-</span></div>
+                                <div class="detail-row"><span>Total Pembayaran:</span><span id="result-payment-amount">Rp 0</span></div>
+                            </div>
+                        </div>
+
+                        <div class="panel-credentials">
+                            <h3><i class="fas fa-server"></i> Credentials Panel</h3>
+                            <div class="credentials-grid">
+                                <div class="credential-card">
+                                    <div class="credential-icon"><i class="fas fa-id-card"></i></div>
+                                    <div class="credential-content">
+                                        <span class="credential-label">Server ID</span>
+                                        <span class="credential-value" id="result-server-id">-</span>
+                                        <button class="copy-btn" data-target="result-server-id"><i class="fas fa-copy"></i></button>
+                                    </div>
+                                </div>
+                                <div class="credential-card">
+                                    <div class="credential-icon"><i class="fas fa-user"></i></div>
+                                    <div class="credential-content">
+                                        <span class="credential-label">Username</span>
+                                        <span class="credential-value" id="result-username">-</span>
+                                        <button class="copy-btn" data-target="result-username"><i class="fas fa-copy"></i></button>
+                                    </div>
+                                </div>
+                                <div class="credential-card">
+                                    <div class="credential-icon"><i class="fas fa-key"></i></div>
+                                    <div class="credential-content">
+                                        <span class="credential-label">Password</span>
+                                        <span class="credential-value" id="result-password">-</span>
+                                        <button class="copy-btn" data-target="result-password"><i class="fas fa-copy"></i></button>
+                                    </div>
+                                </div>
+                                <div class="credential-card">
+                                    <div class="credential-icon"><i class="fas fa-calendar"></i></div>
+                                    <div class="credential-content">
+                                        <span class="credential-label">Aktivasi</span>
+                                        <span class="credential-value" id="result-activation-date">-</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="server-specs">
+                                <h4><i class="fas fa-microchip"></i> Spesifikasi Server</h4>
+                                <div class="specs-grid">
+                                    <div class="spec-item"><span>RAM:</span><span id="result-ram">-</span></div>
+                                    <div class="spec-item"><span>DISK:</span><span id="result-disk">-</span></div>
+                                    <div class="spec-item"><span>CPU:</span><span id="result-cpu">-</span></div>
+                                    <div class="spec-item"><span>Domain:</span><span id="result-domain">-</span></div>
+                                </div>
+                            </div>
+
+                            <div class="rules-box">
+                                <h4><i class="fas fa-gavel"></i> Ketentuan Layanan</h4>
+                                <ul>
+                                    <li><i class="fas fa-clock"></i> Masa aktif 30 hari</li>
+                                    <li><i class="fas fa-shield-alt"></i> Garansi 15 hari (1x replace)</li>
+                                    <li><i class="fas fa-lock"></i> Simpan data dengan aman</li>
+                                    <li><i class="fas fa-file-alt"></i> Wajib bukti chat untuk klaim</li>
+                                </ul>
+                            </div>
+
+                            <div class="panel-login">
+                                <a id="panel-url" href="#" target="_blank" class="btn-primary btn-large">
+                                    <i class="fas fa-external-link-alt"></i> Login ke Panel
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button id="new-transaction" class="btn-primary">
+                                <i class="fas fa-plus"></i> Beli Panel Lagi
+                            </button>
+                            <button id="save-details" class="btn-secondary">
+                                <i class="fas fa-download"></i> Simpan Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HISTORY PAGE -->
+            <section id="page-history" class="page-content hidden">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-history"></i>
+                        <h2>History Transaksi</h2>
+                        <p>Riwayat pembelian panel Anda</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="history-controls">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="history-search" placeholder="Cari username atau ID...">
+                            </div>
+                            <div class="filter-buttons">
+                                <button class="filter-btn active" data-filter="all">Semua</button>
+                                <button class="filter-btn" data-filter="pending">Pending</button>
+                                <button class="filter-btn" data-filter="success">Sukses</button>
+                                <button class="filter-btn" data-filter="expired">Expired</button>
+                            </div>
+                        </div>
+
+                        <div class="history-list" id="history-list">
+                            <div class="empty-history">
+                                <i class="fas fa-history"></i>
+                                <h3>Belum ada transaksi</h3>
+                                <p>Transaksi Anda akan muncul di sini</p>
+                            </div>
+                        </div>
+
+                        <div class="history-detail" id="history-detail">
+                            <!-- Detail akan muncul di sini -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ERROR PAGE -->
+            <section id="step-error" class="step-content">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h2>Transaksi Gagal</h2>
+                        <p>Terjadi masalah dalam proses</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="error-message">
+                            <div class="error-icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <h3 id="error-title">Pembayaran Expired</h3>
+                            <p id="error-description">QRIS pembayaran telah kedaluwarsa</p>
+                        </div>
+                        <div class="action-buttons">
+                            <button id="retry-transaction" class="btn-primary">
+                                <i class="fas fa-redo"></i> Coba Lagi
+                            </button>
+                            <button id="back-to-start" class="btn-secondary">
+                                <i class="fas fa-home"></i> Kembali ke Home
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 <strong>Sapura Cloud</strong> - Panel Auto Provisioning System</p>
+            <p class="footer-links">
+                <span><i class="fas fa-bolt"></i> Sistem Otomatis End-to-End</span>
+                <span><i class="fas fa-shield-alt"></i> Pembayaran QRIS Aman</span>
+                <span><i class="fas fa-rocket"></i> Instant Provisioning</span>
+            </p>
+            <p class="footer-version">v1.0.0 | Mode: <span id="mode-indicator">DEMO</span></p>
+        </footer>
+    </div>
+
+    <!-- LOADING OVERLAY -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h3 id="loading-message">Memproses...</h3>
+            <p id="loading-detail">Harap tunggu sebentar</p>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="toast-message">Berhasil!</span>
+        </div>
+    </div>
+
+    <!-- MODE SWITCHER (Demo/Production) -->
+    <div class="mode-switcher">
+        <button id="toggle-mode" class="btn-mode">
+            <i class="fas fa-cog"></i>
+            <span>Mode: DEMO</span>
+        </button>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
