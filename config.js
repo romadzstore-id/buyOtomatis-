@@ -11,12 +11,12 @@ const CONFIG = {
     
     // Panel Pterodactyl Configuration
     panel: {
-        domain: "https://panel.domainanda.com", // Ganti dengan domain panel Anda
-        apiKey: "apikeyRestApi", // Ganti dengan API Key panel Anda
+        domain: "https://romadzstore-real.privyxhost.my.id", // Ganti dengan domain panel Anda
+        apiKey: "ptla_zTHDmaSL3VRfRt4b5e5fhZISy9bnd4OyFhWlRLgIIF0", // Ganti dengan API Key panel Anda
         nestId: 1, // Nest ID default
         eggId: 1, // Egg ID default
         locationId: 1, // Location ID default
-        dockerImage: "ghcr.io/pterodactyl/yolks:nodejs_18" // Docker image default
+        dockerImage: "ghcr.io/pterodactyl/yolks:nodejs_20" // Docker image default
     },
     
     // Package Configuration
