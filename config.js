@@ -13,8 +13,9 @@ const CONFIG = {
     panel: {
         domain: "https://romadzstore-real.privyxhost.my.id", // Ganti dengan domain panel Anda
         apiKey: "ptla_zTHDmaSL3VRfRt4b5e5fhZISy9bnd4OyFhWlRLgIIF0", // Ganti dengan API Key panel Anda
-        nestId: 1, // Nest ID default
-        eggId: 1, // Egg ID default
+        capikey: "ptlc_1nlOvkGqwdK1ZpMuFJV3tVhcMwmwcXaObIhyyce0iqi", // Gamti dengan Capikey panel Anda
+        nestId: 15, // Nest ID default
+        eggId: 5, // Egg ID default
         locationId: 1, // Location ID default
         dockerImage: "ghcr.io/pterodactyl/yolks:nodejs_20" // Docker image default
     },
